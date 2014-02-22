@@ -1,0 +1,36 @@
+{
+  "name": "rocambole-node-update",
+  "version": "0.0.0",
+  "description": "Update a rocambole AST node",
+  "license": "MIT",
+  "repository": "sindresorhus/rocambole-node-update",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "http://sindresorhus.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "rocambole",
+    "esprima",
+    "ast",
+    "node",
+    "update",
+    "change",
+    "source",
+    "js",
+    "javascript"
+  ],
+  "devDependencies": {
+    "mocha": "*",
+    "rocambole": "^0.3.2"
+  }
+}
