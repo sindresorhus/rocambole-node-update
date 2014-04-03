@@ -1,16 +1,16 @@
-# rocambole-node-update [![Build Status](https://travis-ci.org/sindresorhus/rocambole-node-update.png?branch=master)](https://travis-ci.org/sindresorhus/rocambole-node-update)
+# rocambole-node-update [![Build Status](https://travis-ci.org/sindresorhus/rocambole-node-update.svg?branch=master)](https://travis-ci.org/sindresorhus/rocambole-node-update)
 
 > Update a [rocambole](https://github.com/millermedeiros/rocambole) AST node
 
 
 ## Install
 
-```
-npm install --save rocambole-node-update
+```bash
+$ npm install --save rocambole-node-update
 ```
 
 
-## Example
+## Usage
 
 ```js
 var rocambole = require('rocambole');
@@ -27,4 +27,4 @@ rocambole.moonwalk('if (true) { foo() }', function (node) {
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+[MIT](http://opensource.org/licenses/MIT) © [Sindre Sorhus](http://sindresorhus.com)
