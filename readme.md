@@ -5,7 +5,7 @@
 
 ## Install
 
-```bash
+```sh
 $ npm install --save rocambole-node-update
 ```
 
@@ -27,4 +27,4 @@ rocambole.moonwalk('if (true) { foo() }', function (node) {
 
 ## License
 
-[MIT](http://opensource.org/licenses/MIT) © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](http://sindresorhus.com)

@@ -1,7 +1,7 @@
 'use strict';
 var assert = require('assert');
 var rocambole = require('rocambole');
-var updateNode = require('./index');
+var updateNode = require('./');
 
 it('should update a AST node', function () {
 	var str = rocambole.moonwalk('if (true) { foo() }', function (node) {
