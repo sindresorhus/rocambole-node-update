@@ -6,14 +6,13 @@ var updateNode = require('./');
 function transformer (fn) {
 	return function (str) {
 		return rocambole.moonwalk(str, fn).toString();
-	}
+	};
 }
 
 it('should update a AST node', function () {
-
 	var update = transformer(function transform (node) {
 		if (node.type === 'CallExpression') {
-			updateNode(node, 'bar()')
+			updateNode(node, 'bar()');
 		}
 	});
 
@@ -22,10 +21,9 @@ it('should update a AST node', function () {
 });
 
 it('should update root AST node', function () {
-
 	var update = transformer(function transform (node) {
 		if (node.type === 'CallExpression' && node.callee.object.name === '$log') {
-			updateNode(node, 'void 0')
+			updateNode(node, 'void 0');
 		}
 	});
 

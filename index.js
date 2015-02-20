@@ -1,6 +1,5 @@
 'use strict';
-
-var _tk = require('rocambole-token');
+var rocamboleToken = require('rocambole-token');
 
 module.exports = function (node, str) {
 	var newToken = {
@@ -9,10 +8,10 @@ module.exports = function (node, str) {
 	};
 
 	if (node.startToken) {
-		_tk.before(node.startToken, newToken)
+		rocamboleToken.before(node.startToken, newToken);
 	}
 
 	if (node.endToken) {
-		_tk.after(node.endToken, newToken)
+		rocamboleToken.after(node.endToken, newToken);
 	}
 };

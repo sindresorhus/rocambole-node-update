@@ -29,11 +29,11 @@
     "js",
     "javascript"
   ],
+  "dependencies": {
+    "rocambole-token": "^1.2.1"
+  },
   "devDependencies": {
     "mocha": "*",
     "rocambole": "^0.3.6"
-  },
-  "dependencies": {
-    "rocambole-token": "^1.2.1"
   }
 }
