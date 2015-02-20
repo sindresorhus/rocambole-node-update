@@ -3,12 +3,32 @@ var assert = require('assert');
 var rocambole = require('rocambole');
 var updateNode = require('./');
 
-it('should update a AST node', function () {
-	var str = rocambole.moonwalk('if (true) { foo() }', function (node) {
-		if (node.type === 'CallExpression') {
-			updateNode(node, 'bar()');
-		}
-	}).toString();
+function transformer (fn) {
+	return function (str) {
+		return rocambole.moonwalk(str, fn).toString();
+	}
+}
 
-	assert.strictEqual(str, 'if (true) { bar() }');
+it('should update a AST node', function () {
+
+	var update = transformer(function transform (node) {
+		if (node.type === 'CallExpression') {
+			updateNode(node, 'bar()')
+		}
+	});
+
+	assert.strictEqual(update('if (true) { foo() }'), 'if (true) { bar() }');
+	assert.strictEqual(update('log()'), 'bar()');
+});
+
+it('should update root AST node', function () {
+
+	var update = transformer(function transform (node) {
+		if (node.type === 'CallExpression' && node.callee.object.name === '$log') {
+			updateNode(node, 'void 0')
+		}
+	});
+
+	assert.strictEqual(update('a=0;$log.log()'), 'a=0;void 0');
+	assert.strictEqual(update('$log.log()'), 'void 0');
 });

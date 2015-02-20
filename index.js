@@ -1,19 +1,18 @@
 'use strict';
+
+var _tk = require('rocambole-token');
+
 module.exports = function (node, str) {
 	var newToken = {
 		type: 'custom',
 		value: str
 	};
 
-	if (node.startToken.prev) {
-		node.startToken.prev.next = newToken;
-		newToken.prev = node.startToken.prev;
+	if (node.startToken) {
+		_tk.before(node.startToken, newToken)
 	}
 
-	if (node.endToken.next) {
-		node.endToken.next.prev = newToken;
-		newToken.next = node.endToken.next;
+	if (node.endToken) {
+		_tk.after(node.endToken, newToken)
 	}
-
-	node.startToken = node.endToken = newToken;
 };
