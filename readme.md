@@ -5,7 +5,7 @@
 
 ## Install
 
-```sh
+```
 $ npm install --save rocambole-node-update
 ```
 
@@ -13,15 +13,15 @@ $ npm install --save rocambole-node-update
 ## Usage
 
 ```js
-var rocambole = require('rocambole');
-var updateNode = require('rocambole-node-update');
+const rocambole = require('rocambole');
+const updateNode = require('rocambole-node-update');
 
-rocambole.moonwalk('if (true) { foo() }', function (node) {
+rocambole.moonwalk('if (true) { foo() }', node => {
 	if (node.type === 'CallExpression') {
 		updateNode(node, 'bar()');
 	}
 }).toString();
-//=> if (true) { bar() }
+//=> 'if (true) { bar() }'
 ```
 
 

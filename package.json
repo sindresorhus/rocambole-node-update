@@ -7,7 +7,7 @@
   "author": {
     "name": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
-    "url": "http://sindresorhus.com"
+    "url": "sindresorhus.com"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -34,6 +34,6 @@
   },
   "devDependencies": {
     "mocha": "*",
-    "rocambole": "^0.3.6"
+    "rocambole": "^0.7.0"
   }
 }
