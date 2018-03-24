@@ -1,10 +1,10 @@
 'use strict';
-var rocamboleToken = require('rocambole-token');
+const rocamboleToken = require('rocambole-token');
 
-module.exports = function (node, str) {
-	var newToken = {
+module.exports = (node, newString) => {
+	const newToken = {
 		type: 'custom',
-		value: str
+		value: newString
 	};
 
 	if (node.startToken) {

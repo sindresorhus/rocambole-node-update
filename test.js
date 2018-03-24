@@ -1,32 +1,27 @@
-'use strict';
-var assert = require('assert');
-var rocambole = require('rocambole');
-var updateNode = require('./');
+import test from 'ava';
+import rocambole from 'rocambole';
+import m from '.';
 
-function transformer (fn) {
-	return function (str) {
-		return rocambole.moonwalk(str, fn).toString();
-	};
-}
+const transformer = fn => string => rocambole.moonwalk(string, fn).toString();
 
-it('should update a AST node', function () {
-	var update = transformer(function transform (node) {
+test('update a AST node', t => {
+	const update = transformer(node => {
 		if (node.type === 'CallExpression') {
-			updateNode(node, 'bar()');
+			m(node, 'bar()');
 		}
 	});
 
-	assert.strictEqual(update('if (true) { foo() }'), 'if (true) { bar() }');
-	assert.strictEqual(update('log()'), 'bar()');
+	t.is(update('if (true) { foo() }'), 'if (true) { bar() }');
+	t.is(update('log()'), 'bar()');
 });
 
-it('should update root AST node', function () {
-	var update = transformer(function transform (node) {
+test('update root AST node', t => {
+	const update = transformer(node => {
 		if (node.type === 'CallExpression' && node.callee.object.name === '$log') {
-			updateNode(node, 'void 0');
+			m(node, 'void 0');
 		}
 	});
 
-	assert.strictEqual(update('a=0;$log.log()'), 'a=0;void 0');
-	assert.strictEqual(update('$log.log()'), 'void 0');
+	t.is(update('a=0;$log.log()'), 'a=0;void 0');
+	t.is(update('$log.log()'), 'void 0');
 });
