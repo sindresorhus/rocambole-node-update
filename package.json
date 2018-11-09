@@ -1,6 +1,6 @@
 {
 	"name": "rocambole-node-update",
-	"version": "2.0.0",
+	"version": "3.0.0",
 	"description": "Update a rocambole AST node",
 	"license": "MIT",
 	"repository": "sindresorhus/rocambole-node-update",
